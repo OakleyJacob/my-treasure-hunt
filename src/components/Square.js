@@ -21,10 +21,13 @@ const Square = (props) => {
         }
     }
     useEffect(() => {
-        if (props.contents === 'O'&&whackPhase !== 3){
+        if (props.gameActive && props.contents === 'O'&&whackPhase !== 3){
             setWhackPhase(1)
         }
-        else if (whackPhase !==3){
+        else if (props.gameActive && whackPhase !==3){
+            setWhackPhase(2)
+        }
+        else if (!props.gameActive){
             setWhackPhase(0)
         }
     }, [props])
@@ -77,7 +80,7 @@ const Square = (props) => {
     }}
   return (
 
-    <div style = {myColors()}><div className = 'square' style = {myStyle(size)} onClick = {() => handleClick()}>{props.contents}</div></div>
+    <div style = {myColors()}><div className = 'square' style = {myStyle(size)} onClick = {() => handleClick()}></div></div>
   )
 }
 

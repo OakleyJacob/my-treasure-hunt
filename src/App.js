@@ -2,10 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 import Square from './components/Square';
+import GameOver from './components/GameOver';
+import GameStart from './components/GameStart';
+
 function App() {
   const [gameActive, setGameActive] = useState(false)
-  const [size, setSize] = useState(5)
   const [score, setScore] = useState(0)
+  const [size, setSize] = useState(5)
+  const [time, setTime] = useState(1750)
   const [usedSquares, setUsedSquares] = useState([])
   const [squares, setSquares] = useState()
   const handleSliderChange = (e) => {
@@ -13,7 +17,12 @@ function App() {
     setSize(e.target.value)
     }
   }
-
+  const handleTimeSliderChange = (e) => {
+    if (!gameActive){
+    setTime(e.target.value)
+    console.log(time);
+    }
+  }
   useEffect(() => {
     const newSquares = []
 
@@ -59,39 +68,21 @@ function App() {
     
   }, [size])
 
-  const [randomInt, setRandomInt] = useState();
- const playGame = async ()  => {
+  const playGame = async ()  => {
+    setSquares(getNewSquares(Math.floor(Math.random() * squares.length)))
     while (gameActive) {
       const randomID = await randomizeAfterOneSecond();
       const newSquares = (getNewSquares(randomID))
-      setRandomInt(randomID)
+      
       setSquares(newSquares)
       } 
       
       
       }
-  useEffect(() => {
-    console.log("Squares: "+squares);
-  }, [squares])
-  useEffect(() => {
-    console.log("Random Int:"+ randomInt);
-  },[randomInt])
+
   const getNewSquares = (id) => {
-    console.log("Squares: "+squares);
-    console.log(id);
-    console.log("Random Int:"+randomInt);
-    return squares
-        .map((value, index) => {
- 
-        if (value === 'O'){
-          console.log('y');
-          return "Y"; 
-        }
-        else {
-          return 'X'
-        }
-        
-      }).map((value, index) => {
+
+    return squares.map((value, index) => {
  
         if (index == id){
           return "O";
@@ -103,7 +94,7 @@ function App() {
       })
   }
   const randomizeAfterOneSecond = () => {
-
+    if (gameActive){
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         let randomInt = Math.floor(Math.random() * squares.length)
@@ -111,15 +102,16 @@ function App() {
           randomInt = Math.floor(Math.random() * squares.length)
         }
         resolve(randomInt);
-      }, 1000); 
+      }, time); 
     
-  })}
+  })}}
   const getClicks = (status, id) => {
     const newUsedSquares = usedSquares
     newUsedSquares.push(id)
     setUsedSquares(newUsedSquares)
-    status?(setScore(score+5), console.log(score+5)):(setGameActive(false), console.log('you lose'))
+    status?(setScore(score+Math.floor((15-size)/(time/1000)))):(setGameActive(false), setGameOver(true))
   }
+  const [gameOver, setGameOver] = useState(false)
   useEffect(() => {
     if(gameActive){
       playGame()
@@ -138,13 +130,17 @@ function App() {
   } 
   return (
     <>
-    <input type="range" min="5" max="10" value={size} className="slider" id="myRange" onChange = {handleSliderChange}></input>
-    <button onClick = {handleStart}>Start Game</button>
+   
       <div className="gameBoard">
+      <GameStart />
+      <GameOver gameOver={gameOver} score = {score}/>
       {squares?.map((value, index) => {
-        return <Square getClicks = {getClicks} size = {size} contents = {value} key = {index} id = {index}/>
+        return <Square gameActive = {gameActive} getClicks = {getClicks} size = {size} contents = {value} key = {index} id = {index}/>
       })} 
       </div>
+      <h2> <input type="range" min="5" max="10" value={size} className="slider" id="myRange" onChange = {handleSliderChange}></input>  Size: {size}x{size}</h2> 
+      <h2> <input type="range" min="500" max="3000" value={time} className="slider" id="myTimeRange" onChange = {handleTimeSliderChange}></input> Time(in s): {(time/1000).toFixed(1)}</h2> 
+     <div>{gameActive||<button onClick = {handleStart}>Start Game</button> }{gameActive&& <h2>Your score is currently {score}!</h2>}</div> 
     </>
   );
 

@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(to bottom right, #FEBE10, #FFD700);
+  background-size: cover;
 }
 
 code {
@@ -21,6 +23,7 @@ code {
 }
 
 .gameBoard {
+  padding-top: 5%;
   margin: auto;
   display: flex;
   flex-wrap: wrap;

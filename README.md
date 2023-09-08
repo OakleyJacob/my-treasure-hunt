@@ -33,7 +33,7 @@ To get started and play the Whack-a-Mole game locally on your machine, follow th
 
    ```bash
    git clone https://github.com/your-username/whack-a-mole-game.git
-  ```
+     ```
 
 2. Navigate to the project directory:
 
@@ -41,8 +41,8 @@ To get started and play the Whack-a-Mole game locally on your machine, follow th
 cd whack-a-mole-game
 ```
 3. Install the necessary dependencies:
-```
-bash
+   
+```bash
 
 npm install
 ```

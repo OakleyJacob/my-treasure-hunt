@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Whack-a-Mole Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Whack-a-Mole game built with React! This is a simple and fun game where your goal is to whack as many moles as you can within a certain time limit. Test your reflexes and enjoy some classic whacking action!
 
-## Available Scripts
+https://my-treasure-hunt.vercel.app/
 
-In the project directory, you can run:
+## Table of Contents
 
-### `yarn start`
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [How to Play](#how-to-play)
+- [Contributing](#contributing)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `yarn test`
+- **Whack-a-Mole Gameplay**: Enjoy the classic whack-a-mole experience with a React twist.
+- **Countdown Timer**: Challenge yourself with a time limit and see how many moles you can whack in that time.
+- **Score Tracking**: Keep track of your high score and try to beat it with each play.
+- **Responsive Design**: Play the game on various devices and screen sizes.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `yarn build`
+- **React**: The game is built using React, a popular JavaScript library for building user interfaces.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started locally
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To get started and play the Whack-a-Mole game locally on your machine, follow these steps:
 
-### `yarn eject`
+1. Clone this repository to your local machine:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   git clone https://github.com/your-username/whack-a-mole-game.git
+  ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Navigate to the project directory:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+cd whack-a-mole-game
+```
+3. Install the necessary dependencies:
+```
+bash
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+npm install
+```
+4. Start the game:
 
-## Learn More
+```bash
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+npm start
+```
+Now, you can play the Whack-a-Mole game in your web browser at http://localhost:3000.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## How to Play
+Click on the moles as they appear on the screen to whack them.
+Each mole whacked earns you points.
+Try to click as many squares as you can without mistakes.
+Your high score will be reported, so challenge yourself to beat it in the next round!
+## Contributing
+If you'd like to contribute to this game or have suggestions for improvements, please feel free to create an issue or submit a pull request. We welcome contributions and feedback from the community!
